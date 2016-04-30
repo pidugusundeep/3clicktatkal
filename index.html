@@ -1,0 +1,219 @@
+<html>
+<head>
+<title>3 Click Tatkal</title>
+<meta charset="UTF-8">
+</head>
+<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="mdl/material.min.css">
+<script src="mdl/material.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body{
+             background-color:lightgrey;
+        }
+		img {
+		   padding:1px;
+		   box-shadow: 10px 10px 5px #888888;
+		}
+		a{
+			text-decoration:none;
+		}
+		#inl{
+			display: inline;
+		}
+    </style>
+    <script>
+			
+			$(document).ready(function(){
+				$('#myModal').modal('show');
+			});
+			function copyToClipboard(element) {
+			  var $temp = $("<input>");
+			  $("body").append($temp);
+			  $temp.val($(element).text()).select();
+			  document.execCommand("copy");
+			  $temp.remove();
+				alert("copied ☻ ");
+			}
+			function dateval(){
+				 
+				 date = document.getElementById("date").value;
+				a = date.length;
+				if(a == 2||a == 5){
+					document.getElementById("date").value += "-";
+				}
+			
+			}
+            function hekk1(){
+                tost = document.getElementById("tost").value;
+                frmst = document.getElementById("frmst").value;
+                date = document.getElementById("date").value;
+                trnum = document.getElementById("trnum").value;
+				aa = document.getElementById("selee").value;
+				
+				if(tost==""||frmst==""){
+					document.getElementById("error").innerHTML = "*All feilds are required";
+					return;
+				}
+				if(date==""||trnum==""){
+					document.getElementById("error").innerHTML = "*All feilds are required";
+					return;
+				}
+				if(aa==""){
+					document.getElementById("error").innerHTML = "*All feilds are required";
+					return;
+				}
+				
+				document.getElementById("error").innerHTML = "";
+				console.log(aa);
+				
+                from1 = "document.getElementById(\"jpform:fromStation\").value = \""+frmst+"\";";
+                document.getElementById("codee").innerHTML = from1;
+                to = "document.getElementById(\"jpform:toStation\").value = \""+tost+"\";";
+                document.getElementById("codee").innerHTML += "<br>"+to;
+                date1 = "document.getElementById(\"jpform:journeyDateInputDate\").value = \""+date+"\";";
+                document.getElementById("codee").innerHTML += "<br>"+date1;
+				
+				clk = "document.getElementById(\"jpform:jpsubmit\").click();";
+				
+				document.getElementById("codee").innerHTML += "<br>"+clk;
+				
+				
+				var frmstshort1 = frmst.split("-");
+				if(typeof(frmstshort1[1]) == 'undefined'){
+					document.getElementById("error").innerHTML = "*Invalid From Station";
+					document.getElementById("codee").innerHTML = "";
+					return;
+				}
+				
+				frmstshort = frmstshort1[1].trim();
+				
+				var tostshort1 = tost.split("-");
+				if(typeof(tostshort1[1]) == 'undefined'){
+					document.getElementById("error").innerHTML = "*Invalid To Station";
+					document.getElementById("codee").innerHTML = "";
+					return;
+				}
+				tostshort = tostshort1[1].trim();
+				
+				
+                trsel = "jpBook($('#"+trnum+"-"+aa+"-CK-0'),'"+trnum+"','"+frmstshort+"','"+tostshort+"','"+date+"','"+aa+"','CK',3,false);";
+				
+				fi = trsel.trim();
+				
+                document.getElementById("codee").innerHTML += "<br>"+trsel;
+                
+            }
+    </script>
+<body >
+
+
+<!-- bootstrap starts -->
+
+
+		<div class="container">
+		  
+		  <!-- Modal -->
+		  <div class="modal fade" id="myModal" role="dialog" align="center">
+			<div class="modal-dialog modal-lg">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal">&times;</button>
+				  <h4 class="modal-title" style="color:#6012ed" align="Center">Getting Started !</h4>
+				</div>
+				<div class="modal-body">
+					
+					<h6 style="color:#ff0080">❤ We help you with booking your TATKAL ticket fast and simple ❤</h6>
+					
+					<iframe width="760" height="515" src="https://www.youtube.com/embed/SZjXsVQ_8Xo" frameborder="0" allowfullscreen></iframe>
+					
+					<h5> Here are the step wise guide </h5>
+					
+						<img src="FromTo.png" align="Center" alt="From to save" />
+						<br><br><br>
+						<img src="trainnum.png" align="Center" alt="Train number" />
+						<br><br><br>
+						<img src="copy_code.PNG" align="Center" alt="copycode" />
+						<br><br><br>
+						<img src="console.PNG" align="Center" alt="console" />
+						<br><br><br>
+						<img src="final.png" align="Center" alt="final" />
+						<br><br><br>
+						<h5 style="color:#ff0080">And then you will landup in filling the personal details page </h5>
+						<h5 style="color:#0080ff">To fill this page you can use <a href="https://ctrlq.org/irctc/"><i>Magic Autofill</i></span></a></h5>
+						<h5 style="color:#c63939">After filling the details using autofill you are at the payment page,make sure you use internet banking to minimize the of the booking </h5>
+						<h4 style="color:#e600e6">This could be the best way to book your tatkal tikets</h4>
+						<h3 style="color:#ff0080">WISH YOU A HAPPY AND SAFE JOURNEY</h3>
+				 
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+
+		
+<!-- bootstrap ends -->
+		<div align="Center">
+		
+    <h1 style="color:#0080ff;text-shadow: 2px 2px 2px #000000;"><center>3 Click Tatkal</h1></center>
+	<p id="error" style="color:#ff3333" ></p>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" id="frmst" name="frmst" list="frmst" >
+    <label class="mdl-textfield__label" for="frmst" >Enter the from station</label>
+  </div><br>
+	
+	<datalist id="frmst">
+		<option label="chennai central" value="chennai central - MAS">
+		<option label="google1" value="http://google.com">
+		<option label="google2" value="http://google.com">
+		<option label="google3" value="http://google.com">
+	</datalist>
+	
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" id="tost" >
+    <label class="mdl-textfield__label" for="tost">Enter the To station</label>
+  </div><br>
+  <div class="mdl-textfield mdl-textfield-small mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text"  id="date" maxlength="10"  onKeyUp="dateval()" >
+    <label class="mdl-textfield__label" for="date" >Enter the date</label>
+    <span class="mdl-textfield__error">Input is not a number!</span>
+  </div><br>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="mdl-textfield__input" type="text" id="trnum" >
+    <label class="mdl-textfield__label" for="trnum">Train Number</label>
+  </div><br>
+    <select id="selee" >
+        <option value="1A">1A</option>
+        <option value="2A">2A</option>
+        <option value="3A">3A</option>
+        <option value="SL">SL</option>
+    </select><br></br>
+   
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="hekk1()">
+    Button
+    </button><br><br>
+    
+    <p> -- Copy the below code -- </p>
+	<p id="codee" style="color:#4000ff"></p>
+	
+		<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-button--colored" onclick="copyToClipboard('#codee')">
+		  Click here to copy
+		</button>
+<br><br>
+	<h6 style="color:#ff0080" id="inl">With ❤ javascript </h6>
+	<a href="https://twitter.com/pidugusundeep5" id="inl" style="display:inline" class="twitter-follow-button" data-show-count="false" data-size="large" data-dnt="true">Follow @pidugusundeep5</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<body>
+</html>
